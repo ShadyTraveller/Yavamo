@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.YAVAMO.ca/sitemap.xml
+Sitemap: https://www.yavamo.ca/sitemap.xml

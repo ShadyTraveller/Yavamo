@@ -1,13 +1,12 @@
-<<<<<<< HEAD
-# Northline GTA
+# Yavamo
 
-Deploy-ready static marketing website for home services and tech services in Toronto and the Greater Toronto Area.
+Deploy-ready static booking website for home services and tech services in Toronto and the Greater Toronto Area.
 
 ## What is included
 
 - Multi-page static site with a premium marketplace-inspired look
 - Homepage plus dedicated organic pages for home services, tech services, and Toronto local SEO
-- Two PPC landing pages with above-the-fold quote forms
+- Two PPC landing pages with above-the-fold booking forms
 - Lightweight booking flow with service, property type, date, arrival window, and cancellation-by-email acknowledgement
 - SEO basics: page metadata, canonical URLs, Open Graph, JSON-LD, `robots.txt`, `sitemap.xml`, and web manifest
 - Lead capture that works with:
@@ -43,7 +42,7 @@ Deploy-ready static marketing website for home services and tech services in Tor
    - `SUPABASE_SERVICE_ROLE_KEY`
    - `LEADS_TABLE` = `leads` (optional if you keep the default table name)
 4. Run the SQL in `supabase/leads.sql` inside your Supabase SQL editor.
-5. Update the production domain references if you change the placeholder domain `https://www.northlinegta.ca`.
+5. Update the production domain references if you change the placeholder domain `https://www.yavamo.ca`.
 6. If you already created the `leads` table from an older version of this project, run the updated SQL again so the booking columns are added with `alter table ... add column if not exists`.
 
 ## Deploy to Netlify
@@ -64,11 +63,6 @@ Deploy-ready static marketing website for home services and tech services in Tor
 
 ## Before launch
 
-- Replace the placeholder phone number and email in the HTML files.
-- Replace the placeholder domain in all canonical and social tags.
+- Replace the placeholder domain in canonical and social tags if your final domain changes.
 - Add real testimonials, trust badges, and service-area pages as needed.
 - Connect analytics and ad pixels if you want campaign attribution beyond UTMs.
-"# Yavamo" 
-=======
->>>>>>> 6d2bfc877c62b026990cae67ae926a82a383a272
-"# Yavamo" 

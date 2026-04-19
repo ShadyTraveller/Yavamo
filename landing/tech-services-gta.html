@@ -3,102 +3,97 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Book Tech Support in Toronto & GTA | Computer and AI support | YAVAMO</title>
-  <meta name="description" content="High-conversion PPC landing page for on-site tech support in Toronto and the GTA. Book computer fixes, ai setup, device installs, software installs, and ai integrations support.">
+  <title>Book Tech Support in Toronto & GTA | Yavamo</title>
+  <meta name="description" content="Book on-site tech support in Toronto and the GTA with a simple online form. Call, email, or request a confirmed booking online.">
   <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://www.YAVAMO.ca/services/tech-services.html">
+  <link rel="canonical" href="https://www.yavamo.ca/services/tech-services.html">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
-  <meta property="og:title" content="Book Tech Support in Toronto & GTA | YAVAMO">
-  <meta property="og:description" content="A landing page for local tech support campaigns.">
+  <meta property="og:title" content="Book Tech Support in Toronto & GTA | Yavamo">
+  <meta property="og:description" content="A focused booking page for GTA tech-support campaigns.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.YAVAMO.ca/landing/tech-services-gta.html">
-  <meta property="og:image" content="https://www.YAVAMO.ca/assets/img/og-image.svg">
+  <meta property="og:url" content="https://www.yavamo.ca/landing/tech-services-gta.html">
+  <meta property="og:image" content="https://www.yavamo.ca/assets/img/og-image.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
   <div class="page-shell">
-    <header class="site-header">
+    <header class="site-header site-header-dark">
       <div class="container">
-        <a class="logo" href="/">
-          <img src="/assets/img/logo-mark.svg" alt="YAVAMO logo">
-          <span>YAVAMO</span>
+        <a class="logo logo-light" href="/">
+          <img src="/assets/img/logo-mark.svg" alt="Yavamo logo">
+          <span>Yavamo</span>
         </a>
         <div></div>
         <div class="header-actions">
-          <a class="btn-ghost" href="tel:+16475550189">Call (416) 659-7503</a>
-          <a class="btn" href="#quote-form">YAVAMOS!</a>
+          <a class="btn-ghost btn-ghost-dark" href="tel:+14166597503">Call (416) 659-7503</a>
+          <a class="btn" href="#quote-form">Book now</a>
         </div>
       </div>
     </header>
 
     <main>
-      <section class="ppc-hero">
-        <div class="container ppc-grid">
-          <div>
-            <span class="eyebrow">PPC landing page</span>
-            <h1>Need better AI, smarter setup, or help with office tech?</h1>
-            <p class="ppc-intro">This page is built for Toronto-area paid campaigns where visitors want an answer fast: internet issues, printer setup, ai installs, or practical small-business tech support.</p>
-            <ul class="hero-points">
-              <li>Focused message for ad traffic</li>
-              <li>Compact form above the fold</li>
-              <li>Works for Vercel and Netlify deployment</li>
-            </ul>
+      <section class="hero hero-dark">
+        <div class="container hero-shell">
+          <div class="hero-copy hero-copy-strong">
+            <span class="eyebrow eyebrow-dark">Tech support booking</span>
+            <p class="hero-kicker">Fast, simple, local</p>
+            <h1>Need better Wi-Fi, device setup, or office tech help?</h1>
+            <p class="hero-summary">This landing page is built for paid traffic where visitors want an answer fast. Submit the issue, your preferred time, and your contact details. We confirm by email or phone, and cancellations happen through email.</p>
+            <div class="hero-service-pills">
+              <span>Focused PPC message</span>
+              <span>Compact booking form</span>
+              <span>UTM tracking included</span>
+            </div>
           </div>
-          <article class="ppc-panel" id="quote-form">
-            <span class="kicker">Get pricing</span>
-            <h3>Describe the issue and we’ll take it from there.</h3>
-            <form data-lead-form>
+          <aside class="booking-panel" id="quote-form">
+            <div class="booking-head">
+              <span class="kicker kicker-light">Request booking</span>
+              <h2>Describe the issue and we’ll take it from there.</h2>
+              <p>Call and email still work, but this is the fastest route for paid traffic.</p>
+            </div>
+            <form class="booking-form" data-lead-form>
               <input type="hidden" name="utm_source">
               <input type="hidden" name="utm_medium">
               <input type="hidden" name="utm_campaign">
               <input type="hidden" name="utm_term">
               <input type="hidden" name="utm_content">
               <input type="hidden" name="landing_page">
+              <input type="hidden" name="booking_channel" value="website">
               <input type="hidden" name="service_type" value="Tech services PPC">
               <label>Full name<input name="name" required></label>
-              <label>Email<input type="email" name="email" required></label>
               <label>Phone<input type="tel" name="phone" required></label>
-              <label>Postal code<input name="postal_code" placeholder="M2N 7K2"></label>
+              <label>Email<input type="email" name="email" required></label>
+              <label>Postal code<input name="postal_code" placeholder="M2N 7K2" required></label>
               <label>
-                Preferred timing
-                <select name="timeline">
-                  <option value="Urgent">Urgent</option>
-                  <option value="Within 72 hours">Within 48 hours</option>
-                  <option value="This week">This week</option>
+                Preferred date
+                <input type="date" name="preferred_date" required>
+              </label>
+              <label>
+                Arrival window
+                <select name="preferred_time" required>
+                  <option value="8 AM - 11 AM">8 AM - 11 AM</option>
+                  <option value="11 AM - 2 PM">11 AM - 2 PM</option>
+                  <option value="2 PM - 5 PM">2 PM - 5 PM</option>
+                  <option value="Flexible">Flexible</option>
                 </select>
               </label>
-              <label>What needs help?<textarea name="message" required placeholder="Example: Wi-Fi drops in the office and we need ai integration plus printer connection."></textarea></label>
-              <button class="btn" type="submit">QUOTAMO</button>
+              <label>What needs help?<textarea name="message" required placeholder="Example: Wi-Fi dead zones in the office, plus printer setup and a smart lock issue."></textarea></label>
+              <label class="checkbox-line">
+                <input type="checkbox" name="cancellation_policy_ack" value="agreed" required>
+                <span>I understand changes and cancellations are handled by email after confirmation.</span>
+              </label>
+              <button class="btn booking-submit" type="submit">Request booking</button>
               <div class="form-status" aria-live="polite"></div>
             </form>
-          </article>
-        </div>
-      </section>
-
-      <section class="section alt">
-        <div class="container">
-          <div class="grid-3">
-            <article class="card">
-              <h3>Campaign alignment</h3>
-              <p>The headline and service bullets map cleanly to ad groups like software help, ai setup, and office tech support.</p>
-            </article>
-            <article class="card">
-              <h3>Low-friction lead flow</h3>
-              <p>The page reduces extra links and keeps the form visible, which is especially useful for high-intent mobile clicks.</p>
-            </article>
-            <article class="card">
-              <h3>Reporting-friendly</h3>
-              <p>UTM fields are carried into the lead payload so you can compare campaigns inside Supabase later.</p>
-            </article>
-          </div>
+          </aside>
         </div>
       </section>
     </main>
-    <footer class="footer">
+    <footer class="footer footer-dark">
       <div class="container">
         <div class="footer-bottom">
-          <span><a href="/">Return to homepage</a></span>
-          <span><a href="/services/tech-services.html">Organic tech-services page</a></span>
+          <span><a href="/">Homepage</a></span>
+          <span><a href="/services/tech-services.html">Tech-services page</a></span>
         </div>
       </div>
     </footer>

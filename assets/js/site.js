@@ -60,7 +60,7 @@
   }
 
   function buildMailto(payload) {
-    var subject = encodeURIComponent("New Northline GTA booking: " + (payload.service_type || "Service request"));
+    var subject = encodeURIComponent("New Yavamo booking: " + (payload.service_type || "Service request"));
     var body = encodeURIComponent(
       [
         "Name: " + (payload.name || ""),
@@ -86,7 +86,7 @@
       ].join("\n")
     );
 
-    window.location.href = "mailto:hello@northlinegta.ca?subject=" + subject + "&body=" + body;
+    window.location.href = "mailto:book@yavamo.ca?subject=" + subject + "&body=" + body;
   }
 
   forms.forEach(function (form) {
