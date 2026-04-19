@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Northline GTA
 
 Deploy-ready static marketing website for home services and tech services in Toronto and the Greater Toronto Area.
@@ -65,4 +66,6 @@ Deploy-ready static marketing website for home services and tech services in Tor
 - Add real testimonials, trust badges, and service-area pages as needed.
 - Connect analytics and ad pixels if you want campaign attribution beyond UTMs.
 "# Yavamo" 
+=======
+>>>>>>> 6d2bfc877c62b026990cae67ae926a82a383a272
 "# Yavamo" 
