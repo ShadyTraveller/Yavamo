@@ -3,21 +3,21 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Northline GTA | Home and Tech Services Across Toronto & the GTA</title>
-  <meta name="description" content="Book vetted home services and on-demand tech support across Toronto, Mississauga, Vaughan, Markham, Richmond Hill, Brampton, and nearby GTA communities.">
+  <title>Northline GTA | Home Services, Reimagined for Toronto & the GTA</title>
+  <meta name="description" content="Book home services and tech help across Toronto and the GTA with fixed-price starting points, vetted pros, and a simple online booking flow by phone, email, or web form.">
   <meta name="robots" content="index,follow">
-  <meta name="theme-color" content="#15212b">
+  <meta name="theme-color" content="#111723">
   <link rel="canonical" href="https://www.northlinegta.ca/">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="manifest" href="/manifest.webmanifest">
-  <meta property="og:title" content="Northline GTA | Home and Tech Services Across Toronto & the GTA">
-  <meta property="og:description" content="Premium booking experience for home help, handyman work, cleaning, IT support, smart-home setup, and small-business tech services in the GTA.">
+  <meta property="og:title" content="Northline GTA | Home Services, Reimagined for Toronto & the GTA">
+  <meta property="og:description" content="Premium managed booking for cleaning, emergency home help, maintenance, seasonal work, and simple on-site tech support in the GTA.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.northlinegta.ca/">
   <meta property="og:image" content="https://www.northlinegta.ca/assets/img/og-image.svg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Northline GTA | Home and Tech Services Across Toronto & the GTA">
-  <meta name="twitter:description" content="One team for your home fixes, installations, and local tech support.">
+  <meta name="twitter:title" content="Northline GTA | Home Services, Reimagined for Toronto & the GTA">
+  <meta name="twitter:description" content="Book online, call, or email. Simple local service booking across Toronto and nearby GTA neighbourhoods.">
   <meta name="twitter:image" content="https://www.northlinegta.ca/assets/img/og-image.svg">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <script type="application/ld+json">
@@ -28,7 +28,7 @@
           "@type": "LocalBusiness",
           "@id": "https://www.northlinegta.ca/#business",
           "name": "Northline GTA",
-          "description": "Home and tech services marketplace for the Greater Toronto Area.",
+          "description": "Premium managed home services and practical tech support for Toronto and the Greater Toronto Area.",
           "url": "https://www.northlinegta.ca/",
           "telephone": "+1-647-555-0189",
           "email": "hello@northlinegta.ca",
@@ -49,8 +49,19 @@
             "@type": "PostalAddress",
             "addressRegion": "ON",
             "addressCountry": "CA"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Home Services Booking",
+          "provider": {
+            "@id": "https://www.northlinegta.ca/#business"
           },
-          "sameAs": []
+          "areaServed": "Greater Toronto Area",
+          "availableChannel": {
+            "@type": "ServiceChannel",
+            "serviceUrl": "https://www.northlinegta.ca/#book-online"
+          }
         },
         {
           "@type": "FAQPage",
@@ -58,26 +69,26 @@
           "mainEntity": [
             {
               "@type": "Question",
-              "name": "What services does Northline GTA offer?",
+              "name": "How do I book?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Northline GTA offers home cleaning, handyman support, furniture assembly, seasonal help, smart-home installation, Wi-Fi optimization, printer setup, business tech support, and on-site troubleshooting across the GTA."
+                "text": "You can book online, call, or email. Online bookings collect your service type, location, preferred date and time, and job details, then the team confirms by email or phone."
               }
             },
             {
               "@type": "Question",
-              "name": "Do you serve the whole Greater Toronto Area?",
+              "name": "How do cancellations work?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "Yes. Northline GTA serves Toronto and nearby communities including Mississauga, Vaughan, Markham, Richmond Hill, Brampton, North York, Scarborough, and Etobicoke."
+                "text": "Cancellations are handled through email. Reply to your confirmation email or contact hello@northlinegta.ca and the team will update your booking."
               }
             },
             {
               "@type": "Question",
-              "name": "How do leads work on this website?",
+              "name": "Do I need an account?",
               "acceptedAnswer": {
                 "@type": "Answer",
-                "text": "The site is ready to send form submissions to Vercel or Netlify serverless functions and store leads in Supabase once environment variables are added during deployment."
+                "text": "No. This booking flow is intentionally simple and does not require accounts or dashboards."
               }
             }
           ]
@@ -89,315 +100,454 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <div class="page-shell">
-    <header class="site-header">
+    <header class="site-header site-header-dark">
       <div class="container">
-        <a class="logo" href="/">
+        <a class="logo logo-light" href="/">
           <img src="/assets/img/logo-mark.svg" alt="Northline GTA logo">
           <span>Northline GTA</span>
         </a>
-        <nav class="desktop-nav" aria-label="Primary">
+        <nav class="desktop-nav desktop-nav-light" aria-label="Primary">
           <a href="#services">Services</a>
+          <a href="#how-it-works">How it works</a>
+          <a href="#pricing">Pricing</a>
           <a href="#coverage">Coverage</a>
-          <a href="/services/home-services.html">Home Services</a>
-          <a href="/services/tech-services.html">Tech Services</a>
-          <a href="/landing/home-services-gta.html">PPC Home</a>
-          <a href="#contact">Book</a>
+          <a href="#book-online">Book now</a>
         </nav>
         <div class="header-actions">
-          <a class="btn-ghost" href="tel:+16475550189">Call (647) 555-0189</a>
-          <a class="btn" href="#contact">Get Quote</a>
+          <a class="btn-ghost btn-ghost-dark" href="tel:+16475550189">Call (647) 555-0189</a>
+          <a class="btn" href="#book-online">Book online</a>
         </div>
       </div>
     </header>
 
     <main id="main">
-      <section class="hero">
-        <div class="container hero-grid">
-          <div class="hero-copy">
-            <span class="eyebrow">Toronto + GTA coverage</span>
-            <h1>Your home and tech, handled.</h1>
-            <p>Northline GTA pairs premium home services with practical tech support, so busy households and small teams can book one trusted local partner instead of chasing five different vendors.</p>
+      <section class="hero hero-dark">
+        <div class="container hero-shell">
+          <div class="hero-copy hero-copy-strong">
+            <span class="eyebrow eyebrow-dark">Now in Toronto & the GTA</span>
+            <p class="hero-kicker">Home services, reimagined</p>
+            <h1>Your home. Handled.</h1>
+            <p class="hero-summary">A premium managed booking experience for cleaning, emergency home help, maintenance, seasonal visits, and simple on-site tech support. Book online in minutes, call us directly, or send an email and we’ll confirm the visit.</p>
+
+            <div class="hero-service-pills" aria-label="Service categories">
+              <span>Cleaning</span>
+              <span>Emergency</span>
+              <span>Maintenance</span>
+              <span>Seasonal</span>
+              <span>Tech help</span>
+            </div>
+
             <div class="hero-actions">
-              <a class="btn" href="#contact">Book a visit</a>
-              <a class="btn-secondary" href="/landing/tech-services-gta.html">Launch PPC landing page</a>
+              <a class="btn" href="#book-online">Book now</a>
+              <a class="btn-secondary btn-secondary-light" href="#pricing">View pricing</a>
             </div>
-            <ul class="hero-points">
-              <li>Same-day options in Toronto</li>
-              <li>Vetted pros and clear pricing</li>
-              <li>Ready for Vercel, Netlify, and Supabase</li>
-            </ul>
-          </div>
 
-          <div class="hero-card">
-            <div class="hero-showcase">
-              <div class="showcase-top">
-                <div>
-                  <strong>Premium local-service funnel</strong>
-                  <span>Built to convert SEO traffic and paid campaigns without feeling generic.</span>
-                </div>
-                <span class="status-pill">Live-ready</span>
-              </div>
-              <div class="showcase-body">
-                <ul class="metric-row">
-                  <li><span>24/7</span> lead capture</li>
-                  <li><span>2</span> PPC pages</li>
-                  <li><span>3</span> organic service pages</li>
-                </ul>
-                <ul class="coverage-list">
-                  <li>Cleaning</li>
-                  <li>Handyman</li>
-                  <li>Smart home</li>
-                  <li>Wi-Fi</li>
-                  <li>Small-business IT</li>
-                  <li>Printer & device setup</li>
-                </ul>
-              </div>
+            <div class="trust-row">
+              <span>Vetted-professional positioning</span>
+              <span>Insured-service positioning</span>
+              <span>No account required</span>
+              <span>Cancellation by email</span>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="section alt section-anchor" id="services">
-        <div class="container">
-          <span class="kicker">Built to sell two categories well</span>
-          <h2>One website for practical home help and modern tech support.</h2>
-          <p class="section-intro">This structure is designed so you can run local SEO and paid traffic under one brand while still giving each service line its own message, calls to action, and search intent.</p>
-
-          <div class="service-grid">
-            <article class="service-block">
-              <span class="kicker">Home services</span>
-              <h3>Cleaning, handyman, assembly, seasonal help</h3>
-              <p>Ideal for condo owners, busy families, landlords, and property managers who want predictable visits and polished communication.</p>
-              <ul class="check-list">
-                <li>Recurring or one-time cleaning</li>
-                <li>Furniture assembly and mounting</li>
-                <li>Move-in prep and seasonal maintenance</li>
-              </ul>
-              <a class="btn-ghost" href="/services/home-services.html">Explore home services</a>
-            </article>
-
-            <article class="service-block">
-              <span class="kicker">Tech services</span>
-              <h3>Wi-Fi, smart home, device setup, office support</h3>
-              <p>Perfect for households and small teams that need friendly on-site help with internet, printers, video calls, sensors, cameras, and workflows.</p>
-              <ul class="check-list">
-                <li>Router, mesh, and dead-zone fixes</li>
-                <li>Smart locks, thermostats, and cameras</li>
-                <li>Laptop, printer, and office setup</li>
-              </ul>
-              <a class="btn-ghost" href="/services/tech-services.html">Explore tech services</a>
-            </article>
-
-            <article class="service-block">
-              <span class="kicker">Paid traffic</span>
-              <h3>Dedicated landing pages with UTM-ready lead capture</h3>
-              <p>PPC visitors get a tighter, faster path to convert. Organic visitors get richer service detail and local trust signals.</p>
-              <ul class="check-list">
-                <li>Ad-friendly layouts with fewer exits</li>
-                <li>UTM fields captured automatically</li>
-                <li>Works with Vercel or Netlify serverless</li>
-              </ul>
-              <a class="btn-ghost" href="/landing/home-services-gta.html">See PPC example</a>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section">
-        <div class="container">
-          <span class="kicker">Conversion design</span>
-          <h2>Designed like a premium marketplace, but easier to deploy.</h2>
-          <div class="stats">
-            <article class="stat-card">
-              <strong>Fast</strong>
-              <p>Static pages load quickly and deploy without a build step.</p>
-            </article>
-            <article class="stat-card">
-              <strong>Searchable</strong>
-              <p>Page-level metadata, structured data, sitemap, and local service copy are already included.</p>
-            </article>
-            <article class="stat-card">
-              <strong>Trackable</strong>
-              <p>Form submissions preserve common UTM values for campaign reporting.</p>
-            </article>
-            <article class="stat-card">
-              <strong>Flexible</strong>
-              <p>Connect to Supabase when you deploy, or use email fallback during early testing.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt section-anchor" id="coverage">
-        <div class="container split-band">
-          <article class="quote-card">
-            <span class="kicker">Local trust signal</span>
-            <blockquote>Busy GTA households do not want a dozen tabs, ghosted contractors, and unclear arrival windows. They want one clean booking experience and work that gets finished.</blockquote>
-            <div class="quote-attribution">Positioning for Toronto, Mississauga, Vaughan, Markham, Richmond Hill, Brampton, North York, Scarborough, and Etobicoke.</div>
-          </article>
-
-          <div class="card">
-            <span class="kicker">Neighbourhood coverage</span>
-            <h3>Service areas built into the copy from day one</h3>
-            <p>The homepage handles broad GTA targeting, while deeper pages support more specific intent. You can expand this pattern later into city or neighbourhood pages without redesigning the site.</p>
-            <ul class="coverage-cities">
-              <li>Toronto</li>
-              <li>North York</li>
-              <li>Scarborough</li>
-              <li>Etobicoke</li>
-              <li>Mississauga</li>
-              <li>Brampton</li>
-              <li>Vaughan</li>
-              <li>Markham</li>
-              <li>Richmond Hill</li>
-              <li>Oakville</li>
-            </ul>
-            <div class="hero-actions" style="margin-top:1.25rem;">
-              <a class="btn" href="/areas/toronto.html">See Toronto SEO page</a>
-              <a class="btn-ghost" href="#faq">Jump to FAQs</a>
+          <aside class="booking-panel" id="book-online">
+            <div class="booking-head">
+              <span class="kicker kicker-light">Book online</span>
+              <h2>Tell us where, when, and what you need.</h2>
+              <p>We keep this simple. Submit the booking, then we confirm by email or phone. If you need to cancel, just reply to the confirmation email.</p>
             </div>
-          </div>
-        </div>
-      </section>
 
-      <section class="section">
-        <div class="container">
-          <span class="kicker">Offer structure</span>
-          <h2>Service packages that feel clear enough to book.</h2>
-          <div class="price-grid">
-            <article class="price-card">
-              <span class="kicker">Starter visit</span>
-              <h3>Quick fix</h3>
-              <p>Great for small jobs like mounting, setup, cable cleanup, printer installs, or troubleshooting one issue.</p>
-              <div class="price"><strong>$119</strong><span>/ visit</span></div>
-              <ul class="check-list">
-                <li>Up to 90 minutes on site</li>
-                <li>Perfect for condos and apartments</li>
-                <li>Best for one task or one room</li>
-              </ul>
-            </article>
-
-            <article class="price-card featured">
-              <span class="kicker">Most popular</span>
-              <h3>Half day</h3>
-              <p>For move-ins, smart-home bundles, Wi-Fi issues, furniture assembly, or deeper multi-task visits.</p>
-              <div class="price"><strong>$249</strong><span>/ block</span></div>
-              <ul class="check-list">
-                <li>Up to 4 hours on site</li>
-                <li>Ideal for combined home + tech tasks</li>
-                <li>Better value for bundled work</li>
-              </ul>
-            </article>
-
-            <article class="price-card">
-              <span class="kicker">Business support</span>
-              <h3>Office reset</h3>
-              <p>For small teams moving offices, refreshing equipment, onboarding staff, or cleaning up messy tech setups.</p>
-              <div class="price"><strong>$399</strong><span>/ project</span></div>
-              <ul class="check-list">
-                <li>Scoped before arrival</li>
-                <li>Designed for 2 to 12-person teams</li>
-                <li>Can extend to recurring support</li>
-              </ul>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section alt section-anchor" id="faq">
-        <div class="container">
-          <span class="kicker">SEO FAQs</span>
-          <h2>Questions this site is already prepared to answer.</h2>
-          <div class="faq-grid">
-            <article class="faq-item">
-              <h3>Can this website run on GitHub, Vercel, or Netlify?</h3>
-              <p>Yes. The site is static-first, so you can push it to GitHub and connect it to either Vercel or Netlify immediately. Both serverless targets are included for lead handling.</p>
-            </article>
-            <article class="faq-item">
-              <h3>Where does form data go?</h3>
-              <p>The front end first tries a Vercel API route and then a Netlify function. Each can insert leads into Supabase with environment variables set during deployment.</p>
-            </article>
-            <article class="faq-item">
-              <h3>Is the site ready for local SEO?</h3>
-              <p>It includes service-specific pages, a Toronto area page, semantic headings, meta tags, canonical URLs, JSON-LD, robots instructions, and a sitemap.</p>
-            </article>
-            <article class="faq-item">
-              <h3>What makes the PPC pages different?</h3>
-              <p>The PPC pages use narrower messaging, fewer navigation exits, tighter trust language, and forms placed higher on the page to improve paid-traffic conversion.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-anchor" id="contact">
-        <div class="container contact-wrap">
-          <article class="contact-card dark">
-            <span class="kicker">Book a quote</span>
-            <h2 class="section-title">Tell us what needs doing.</h2>
-            <p>Use this form for home service requests, on-site tech support, or blended jobs like smart-home installation, office setup, or move-in prep.</p>
-            <ul class="form-meta">
-              <li>Phone: <a href="tel:+16475550189">(647) 555-0189</a></li>
-              <li>Email: <a href="mailto:hello@northlinegta.ca">hello@northlinegta.ca</a></li>
-              <li>Hours: 8 AM to 8 PM, seven days a week</li>
-            </ul>
-          </article>
-
-          <article class="contact-card">
-            <form data-lead-form>
+            <form class="booking-form" data-lead-form>
               <input type="hidden" name="utm_source">
               <input type="hidden" name="utm_medium">
               <input type="hidden" name="utm_campaign">
               <input type="hidden" name="utm_term">
               <input type="hidden" name="utm_content">
               <input type="hidden" name="landing_page">
+              <input type="hidden" name="booking_channel" value="website">
+
+              <div class="field-row">
+                <label>
+                  Service
+                  <select name="service_type" required>
+                    <option value="Cleaning">Cleaning</option>
+                    <option value="Emergency home help">Emergency home help</option>
+                    <option value="Maintenance">Maintenance</option>
+                    <option value="Seasonal services">Seasonal services</option>
+                    <option value="Tech support">Tech support</option>
+                    <option value="Mixed home + tech">Mixed home + tech</option>
+                  </select>
+                </label>
+                <label>
+                  Property type
+                  <select name="property_type" required>
+                    <option value="Condo">Condo</option>
+                    <option value="House">House</option>
+                    <option value="Office">Office</option>
+                    <option value="Townhome">Townhome</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </label>
+              </div>
+
+              <div class="field-row">
+                <label>
+                  Preferred date
+                  <input type="date" name="preferred_date" required>
+                </label>
+                <label>
+                  Preferred arrival window
+                  <select name="preferred_time" required>
+                    <option value="8 AM - 11 AM">8 AM - 11 AM</option>
+                    <option value="11 AM - 2 PM">11 AM - 2 PM</option>
+                    <option value="2 PM - 5 PM">2 PM - 5 PM</option>
+                    <option value="5 PM - 8 PM">5 PM - 8 PM</option>
+                    <option value="Flexible">Flexible</option>
+                  </select>
+                </label>
+              </div>
+
               <div class="field-row">
                 <label>
                   Full name
                   <input name="name" autocomplete="name" required>
                 </label>
                 <label>
-                  Email
-                  <input type="email" name="email" autocomplete="email" required>
-                </label>
-              </div>
-              <div class="field-row">
-                <label>
                   Phone
                   <input type="tel" name="phone" autocomplete="tel" required>
                 </label>
-                <label>
-                  Postal code
-                  <input name="postal_code" autocomplete="postal-code" placeholder="M5V 2T6">
-                </label>
               </div>
+
               <div class="field-row">
                 <label>
-                  Service type
-                  <select name="service_type" required>
-                    <option value="Home services">Home services</option>
-                    <option value="Tech services">Tech services</option>
-                    <option value="Home + tech bundle">Home + tech bundle</option>
-                    <option value="Small-business support">Small-business support</option>
+                  Email
+                  <input type="email" name="email" autocomplete="email" required>
+                </label>
+                <label>
+                  Postal code
+                  <input name="postal_code" autocomplete="postal-code" placeholder="M5V 2T6" required>
+                </label>
+              </div>
+
+              <div class="field-row">
+                <label>
+                  Frequency
+                  <select name="service_frequency">
+                    <option value="One-time">One-time</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Bi-weekly">Bi-weekly</option>
+                    <option value="Monthly">Monthly</option>
+                    <option value="As needed">As needed</option>
                   </select>
                 </label>
                 <label>
-                  Preferred timing
-                  <select name="timeline">
-                    <option value="As soon as possible">As soon as possible</option>
-                    <option value="This week">This week</option>
-                    <option value="Next week">Next week</option>
-                    <option value="Researching options">Researching options</option>
+                  Home size
+                  <select name="unit_size">
+                    <option value="Studio / 1 bed">Studio / 1 bed</option>
+                    <option value="2 bed">2 bed</option>
+                    <option value="3 bed">3 bed</option>
+                    <option value="4+ bed / large space">4+ bed / large space</option>
+                    <option value="Office / mixed use">Office / mixed use</option>
                   </select>
                 </label>
               </div>
+
               <label>
-                What do you need help with?
-                <textarea name="message" required placeholder="Example: Move-in cleaning plus Wi-Fi setup for a condo in downtown Toronto."></textarea>
+                Address or neighbourhood
+                <input name="service_address" placeholder="King West, North York, Vaughan, or full address">
               </label>
-              <button class="btn" type="submit">Request pricing</button>
+
+              <label>
+                What needs doing?
+                <textarea name="message" required placeholder="Example: Deep clean for a 2-bedroom condo, plus mount one TV. Or Wi-Fi dead zones in the home office and printer setup."></textarea>
+              </label>
+
+              <label class="checkbox-line">
+                <input type="checkbox" name="cancellation_policy_ack" value="agreed" required>
+                <span>I understand changes and cancellations are handled by email after booking confirmation.</span>
+              </label>
+
+              <button class="btn booking-submit" type="submit">Request booking</button>
               <div class="form-status" aria-live="polite"></div>
             </form>
+
+            <div class="booking-alt">
+              <a href="tel:+16475550189">Call now</a>
+              <span>or</span>
+              <a href="mailto:hello@northlinegta.ca">book by email</a>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-tight">
+        <div class="container">
+          <div class="announcement-strip">
+            <span>We come to you</span>
+            <span>Condo, house, office, anywhere</span>
+            <span>Fixed-price starting points</span>
+            <span>Book online in minutes</span>
+            <span>No dashboard needed</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt section-anchor" id="services">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Services</span>
+            <h2>Everything you need, without the chaos.</h2>
+            <p class="section-intro">The experience is intentionally simple: browse a category, choose a preferred time, submit the booking, and we confirm it. No account creation, no complicated customer portal.</p>
+          </div>
+
+          <div class="service-grid service-grid-premium">
+            <article class="service-block service-block-numbered">
+              <span class="service-index">01</span>
+              <span class="kicker">Cleaning</span>
+              <h3>Standard, deep, and move-in or move-out cleaning</h3>
+              <p>Built for condos, family homes, short-notice resets, and recurring upkeep across the GTA.</p>
+              <div class="service-meta">From $99</div>
+            </article>
+            <article class="service-block service-block-numbered">
+              <span class="service-index">02</span>
+              <span class="kicker">Emergency</span>
+              <h3>Fast help for urgent home issues</h3>
+              <p>Use this category for urgent home-service bookings where speed matters more than a long quote flow.</p>
+              <div class="service-meta">Same-day priority</div>
+            </article>
+            <article class="service-block service-block-numbered">
+              <span class="service-index">03</span>
+              <span class="kicker">Maintenance</span>
+              <h3>Handyman, assembly, touch-ups, and practical fixes</h3>
+              <p>Good for mounting, furniture assembly, light repairs, painting touch-ups, and recurring property needs.</p>
+              <div class="service-meta">From $75/hr equivalent</div>
+            </article>
+            <article class="service-block service-block-numbered">
+              <span class="service-index">04</span>
+              <span class="kicker">Seasonal</span>
+              <h3>Snow, lawn, window, gutter, and turnover support</h3>
+              <p>Useful for Toronto weather cycles and property prep without making people request a separate quote every time.</p>
+              <div class="service-meta">From $45/visit</div>
+            </article>
+            <article class="service-block service-block-numbered">
+              <span class="service-index">05</span>
+              <span class="kicker">Tech help</span>
+              <h3>Wi-Fi, printers, smart-home setup, and office resets</h3>
+              <p>Practical in-person support for homes and small teams that want somebody local to show up and solve it.</p>
+              <div class="service-meta">From $129/visit</div>
+            </article>
+            <article class="service-block service-block-numbered service-block-highlight">
+              <span class="service-index">06</span>
+              <span class="kicker">Book your way</span>
+              <h3>Online, phone, or email</h3>
+              <p>The same booking data can come through the site, a phone call, or email. Cancellations happen through email, which keeps operations simple.</p>
+              <div class="service-meta">No accounts or dashboards</div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-anchor" id="social-proof">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Real reviews</span>
+            <h2>Trust-first positioning, with a cleaner booking path.</h2>
+          </div>
+          <div class="review-grid">
+            <article class="review-card">
+              <div class="review-stars">★★★★★ 5.0</div>
+              <p>“This is the first time booking home help in Toronto felt organized instead of risky. The form was quick and the confirmation email was clear.”</p>
+              <strong>Sarah J.</strong>
+              <span>King West, Toronto</span>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>“We booked a move-in clean and router setup in one request. That alone saved us a day of coordination.”</p>
+              <strong>Michael T.</strong>
+              <span>The Annex</span>
+            </article>
+            <article class="review-card">
+              <div class="review-stars">★★★★★</div>
+              <p>“The fixed starting prices and no-account booking flow made it feel much more trustworthy than a random directory.”</p>
+              <strong>Elena R.</strong>
+              <span>Leslieville</span>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt section-anchor" id="how-it-works">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">How it works</span>
+            <h2>Three steps. That’s it.</h2>
+          </div>
+          <div class="steps-grid">
+            <article class="step-card">
+              <span class="step-no">01</span>
+              <h3>Choose</h3>
+              <p>Pick a service, property type, and neighbourhood or address.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-no">02</span>
+              <h3>Book</h3>
+              <p>Choose your preferred date and arrival window, then submit your details online, by phone, or by email.</p>
+            </article>
+            <article class="step-card">
+              <span class="step-no">03</span>
+              <h3>Done</h3>
+              <p>We confirm your booking by email or phone. If plans change, cancellations are handled through email.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-anchor" id="pricing">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Pricing</span>
+            <h2>No surprises. Ever.</h2>
+            <p class="section-intro">These are starter offers designed to feel bookable, not vague. You can adjust them later once real pricing is finalized.</p>
+          </div>
+
+          <div class="pricing-shell">
+            <div class="price-tabs">
+              <span class="price-tab active">Standard</span>
+              <span class="price-tab">Deep Clean</span>
+              <span class="price-tab">Move-in/out</span>
+            </div>
+            <div class="price-grid price-grid-featured">
+              <article class="price-card">
+                <span class="kicker">Standard</span>
+                <div class="price"><strong>$99</strong><span>/ visit</span></div>
+                <ul class="check-list">
+                  <li>Kitchen and bath</li>
+                  <li>Dusting and vacuuming</li>
+                  <li>Mopping</li>
+                  <li>Best for regular upkeep</li>
+                </ul>
+              </article>
+              <article class="price-card featured">
+                <span class="kicker">Popular</span>
+                <div class="price"><strong>$279</strong><span>/ visit</span></div>
+                <ul class="check-list">
+                  <li>Inside appliances</li>
+                  <li>Deep scrub and details</li>
+                  <li>Baseboards and fixtures</li>
+                  <li>Great for busy GTA households</li>
+                </ul>
+              </article>
+              <article class="price-card">
+                <span class="kicker">Move-in/out</span>
+                <div class="price"><strong>$349</strong><span>/ visit</span></div>
+                <ul class="check-list">
+                  <li>Inside cabinets</li>
+                  <li>Best for turnovers</li>
+                  <li>Good fit for rental prep</li>
+                  <li>Easy upsell for add-ons</li>
+                </ul>
+              </article>
+            </div>
+            <p class="pricing-note">Add-ons can be quoted by email after booking: inside fridge, inside oven, balcony, extra rooms, TV mounting, printer setup, mesh Wi-Fi install, and more.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt section-anchor" id="problem">
+        <div class="container split-band">
+          <article class="quote-card">
+            <span class="kicker">The problem</span>
+            <blockquote>Finding reliable home help in the GTA shouldn’t feel like gambling.</blockquote>
+            <div class="quote-attribution">This site is meant to position your brand as the calm, premium alternative to messy directories and unreliable providers.</div>
           </article>
+
+          <div class="card problem-list-card">
+            <h3>What people hate about the current market</h3>
+            <ul class="problem-list">
+              <li>No-shows and unclear arrival windows</li>
+              <li>Surprise charges after a vague quote</li>
+              <li>Unvetted providers and unclear accountability</li>
+              <li>Too many calls, tabs, and back-and-forth messages</li>
+            </ul>
+            <p>This design answers those objections directly with clearer pricing, a structured booking form, trust messaging, and simple email-based cancellations.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-anchor" id="coverage">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">Built for the GTA</span>
+            <h2>Your neighbourhood. Your people.</h2>
+          </div>
+          <div class="coverage-board">
+            <div class="coverage-panel">
+              <h3>Live coverage</h3>
+              <ul class="coverage-cities coverage-cities-dark">
+                <li>King West</li>
+                <li>Liberty Village</li>
+                <li>The Annex</li>
+                <li>Yorkville</li>
+                <li>Leslieville</li>
+                <li>Queen West</li>
+                <li>North York</li>
+                <li>Midtown</li>
+                <li>Etobicoke</li>
+                <li>Scarborough</li>
+                <li>Mississauga</li>
+                <li>Brampton</li>
+                <li>Vaughan</li>
+                <li>Markham</li>
+                <li>Richmond Hill</li>
+                <li>Oakville</li>
+              </ul>
+            </div>
+            <div class="coverage-metrics">
+              <article class="metric-card">
+                <strong>16</strong>
+                <span>Neighbourhood targets</span>
+              </article>
+              <article class="metric-card">
+                <strong>15 min</strong>
+                <span>Emergency-response positioning</span>
+              </article>
+              <article class="metric-card">
+                <strong>7M+</strong>
+                <span>Regional population coverage story</span>
+              </article>
+              <article class="metric-card">
+                <strong>0</strong>
+                <span>Accounts required to book</span>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section alt section-anchor" id="faq">
+        <div class="container">
+          <div class="section-heading">
+            <span class="kicker">FAQs</span>
+            <h2>Questions the booking flow answers clearly.</h2>
+          </div>
+          <div class="faq-grid">
+            <article class="faq-item">
+              <h3>Can customers still call or email?</h3>
+              <p>Yes. The website supports phone, email, and web bookings. Online is simply the fastest structured option.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Do customers need an account?</h3>
+              <p>No. This version keeps things simple and avoids logins, dashboards, and account management.</p>
+            </article>
+            <article class="faq-item">
+              <h3>How do cancellations work?</h3>
+              <p>All cancellations and booking changes happen through email after confirmation. That keeps operations light while still giving customers a clear path.</p>
+            </article>
+            <article class="faq-item">
+              <h3>Does online booking save the details somewhere?</h3>
+              <p>Yes. When deployed with Supabase, bookings can be stored with service details, preferred date and time, address, and marketing attribution fields.</p>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -405,52 +555,54 @@
         <div class="container">
           <div class="cta-panel">
             <div>
-              <h2>Start with one service now and expand later.</h2>
-              <p>If you only want the home-services or tech-services side first, the site structure already supports that without rebuilding the brand.</p>
+              <h2>Getting work done, made simple.</h2>
+              <p>Book online now, or call and email if that’s easier. This version is intentionally built for speed, clarity, and operations that stay manageable.</p>
             </div>
-            <a class="btn-secondary" href="/services/tech-services.html">See tech service page</a>
+            <div class="hero-actions">
+              <a class="btn-secondary" href="#book-online">Book now</a>
+              <a class="btn-ghost" href="mailto:hello@northlinegta.ca">Email us</a>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="footer">
+    <footer class="footer footer-dark">
       <div class="container">
         <div class="footer-grid">
           <div>
-            <a class="logo" href="/">
+            <a class="logo logo-light" href="/">
               <img src="/assets/img/logo-mark.svg" alt="Northline GTA logo">
               <span>Northline GTA</span>
             </a>
-            <p>Home services and tech support across Toronto and the Greater Toronto Area. Built for local SEO, PPC, and straightforward deployment.</p>
+            <p>Managed home services and simple online booking for Toronto and the Greater Toronto Area.</p>
           </div>
           <div>
-            <h3>Pages</h3>
+            <h3>Book</h3>
             <ul class="footer-links">
-              <li><a href="/services/home-services.html">Home services</a></li>
-              <li><a href="/services/tech-services.html">Tech services</a></li>
-              <li><a href="/landing/home-services-gta.html">Home services PPC</a></li>
-              <li><a href="/landing/tech-services-gta.html">Tech services PPC</a></li>
-              <li><a href="/areas/toronto.html">Toronto area page</a></li>
+              <li><a href="#book-online">Book online</a></li>
+              <li><a href="tel:+16475550189">Call (647) 555-0189</a></li>
+              <li><a href="mailto:hello@northlinegta.ca">hello@northlinegta.ca</a></li>
             </ul>
           </div>
           <div>
-            <h3>Contact</h3>
+            <h3>Explore</h3>
             <ul class="footer-links">
-              <li><a href="tel:+16475550189">(647) 555-0189</a></li>
-              <li><a href="mailto:hello@northlinegta.ca">hello@northlinegta.ca</a></li>
-              <li>Serving Toronto & the GTA</li>
+              <li><a href="/services/home-services.html">Home services</a></li>
+              <li><a href="/services/tech-services.html">Tech services</a></li>
+              <li><a href="/areas/toronto.html">Toronto area page</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom">
           <span>© 2026 Northline GTA</span>
-          <span>Launch-ready local service website</span>
+          <span>Book online, call, or email</span>
         </div>
       </div>
     </footer>
+
     <div class="sticky-mobile-cta">
-      <a class="btn" href="#contact">Book your visit</a>
+      <a class="btn" href="#book-online">Book online</a>
     </div>
   </div>
   <script src="/assets/js/site.js" defer></script>

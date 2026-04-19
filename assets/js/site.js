@@ -19,12 +19,23 @@
     });
   }
 
+  function setDateMinimum(form) {
+    var dateInput = form.querySelector('input[name="preferred_date"]');
+    if (!dateInput) {
+      return;
+    }
+
+    var today = new Date();
+    var isoDate = new Date(today.getTime() - today.getTimezoneOffset() * 60000).toISOString().slice(0, 10);
+    dateInput.min = isoDate;
+  }
+
   function getEndpointCandidates() {
     return ["/api/lead", "/.netlify/functions/lead"];
   }
 
   async function submitLead(payload) {
-    var lastError = new Error("No lead endpoint is available.");
+    var lastError = new Error("No booking endpoint is available.");
     var endpoints = getEndpointCandidates();
 
     for (var i = 0; i < endpoints.length; i += 1) {
@@ -39,7 +50,7 @@
           return await response.json();
         }
 
-        lastError = new Error("Lead endpoint returned " + response.status + ".");
+        lastError = new Error("Booking endpoint returned " + response.status + ".");
       } catch (error) {
         lastError = error;
       }
@@ -49,16 +60,22 @@
   }
 
   function buildMailto(payload) {
-    var subject = encodeURIComponent("New Northline GTA lead: " + payload.service_type);
+    var subject = encodeURIComponent("New Northline GTA booking: " + (payload.service_type || "Service request"));
     var body = encodeURIComponent(
       [
-        "Name: " + payload.name,
-        "Email: " + payload.email,
-        "Phone: " + payload.phone,
-        "Service: " + payload.service_type,
-        "Postal code: " + payload.postal_code,
-        "Preferred timing: " + payload.timeline,
-        "Message: " + payload.message,
+        "Name: " + (payload.name || ""),
+        "Email: " + (payload.email || ""),
+        "Phone: " + (payload.phone || ""),
+        "Service: " + (payload.service_type || ""),
+        "Property type: " + (payload.property_type || ""),
+        "Frequency: " + (payload.service_frequency || ""),
+        "Preferred date: " + (payload.preferred_date || ""),
+        "Preferred time: " + (payload.preferred_time || ""),
+        "Unit size: " + (payload.unit_size || ""),
+        "Postal code: " + (payload.postal_code || ""),
+        "Address / neighbourhood: " + (payload.service_address || ""),
+        "Cancellation policy acknowledged: " + (payload.cancellation_policy_ack || ""),
+        "Message: " + (payload.message || ""),
         "UTMs: " + JSON.stringify({
           source: payload.utm_source,
           medium: payload.utm_medium,
@@ -74,6 +91,7 @@
 
   forms.forEach(function (form) {
     setHiddenFields(form);
+    setDateMinimum(form);
 
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
@@ -85,7 +103,7 @@
 
       if (status) {
         status.className = "form-status";
-        status.textContent = "Sending your request...";
+        status.textContent = "Sending your booking request...";
       }
 
       if (submitButton) {
@@ -96,10 +114,11 @@
         await submitLead(payload);
         form.reset();
         setHiddenFields(form);
+        setDateMinimum(form);
 
         if (status) {
           status.className = "form-status success";
-          status.textContent = "Thanks. Your request is in. We will reach out shortly.";
+          status.textContent = "Thanks. Your booking request is in. We will confirm by email or phone shortly.";
         }
       } catch (error) {
         if (status) {

@@ -782,3 +782,391 @@ textarea:focus {
     width: 100%;
   }
 }
+
+.site-header-dark {
+  background: rgba(12, 18, 28, 0.76);
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+.desktop-nav-light,
+.logo-light,
+.logo-light span {
+  color: var(--text-inverse);
+}
+
+.desktop-nav-light a {
+  color: rgba(246, 241, 233, 0.7);
+}
+
+.desktop-nav-light a:hover,
+.desktop-nav-light a:focus-visible {
+  color: #fff;
+}
+
+.btn-ghost-dark {
+  border-color: rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text-inverse);
+}
+
+.btn-secondary-light {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-inverse);
+  box-shadow: none;
+}
+
+.hero-dark {
+  padding: 4rem 0 2.4rem;
+  background:
+    radial-gradient(circle at top left, rgba(239, 131, 84, 0.16), transparent 28%),
+    radial-gradient(circle at 90% 8%, rgba(36, 135, 141, 0.18), transparent 20%),
+    linear-gradient(180deg, #0c1017 0%, #111723 38%, #161f2d 100%);
+  color: var(--text-inverse);
+}
+
+.hero-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(360px, 0.92fr);
+  gap: 1.4rem;
+  align-items: start;
+}
+
+.hero-copy-strong {
+  padding: 1.5rem 0;
+}
+
+.eyebrow-dark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.1);
+  color: rgba(246, 241, 233, 0.74);
+}
+
+.hero-kicker {
+  margin: 1.25rem 0 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #a9b4c5;
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.hero-summary {
+  max-width: 48rem;
+  color: rgba(246, 241, 233, 0.8);
+  font-size: 1.08rem;
+}
+
+.hero-service-pills,
+.trust-row,
+.announcement-strip,
+.price-tabs,
+.booking-alt {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-service-pills {
+  margin: 1.4rem 0 0;
+}
+
+.hero-service-pills span,
+.announcement-strip span,
+.price-tab {
+  padding: 0.75rem 1rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.06);
+  font-weight: 700;
+}
+
+.trust-row {
+  margin-top: 1.5rem;
+  color: rgba(246, 241, 233, 0.72);
+  font-size: 0.95rem;
+}
+
+.trust-row span {
+  position: relative;
+  padding-left: 1rem;
+}
+
+.trust-row span::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.46rem;
+  width: 0.42rem;
+  height: 0.42rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.booking-panel {
+  padding: 1.25rem;
+  border-radius: 28px;
+  background: rgba(255, 251, 246, 0.96);
+  color: var(--text);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.booking-head h2 {
+  margin: 0.3rem 0 0.7rem;
+  font-size: clamp(1.8rem, 3vw, 2.5rem);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.02;
+}
+
+.booking-head p {
+  margin: 0 0 1rem;
+  color: var(--text-soft);
+}
+
+.kicker-light {
+  color: var(--accent-alt);
+}
+
+.booking-form {
+  gap: 0.9rem;
+}
+
+.checkbox-line {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.8rem;
+  align-items: start;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+.checkbox-line input {
+  width: 1.05rem;
+  height: 1.05rem;
+  margin-top: 0.1rem;
+}
+
+.booking-submit {
+  width: 100%;
+}
+
+.booking-alt {
+  margin-top: 1rem;
+  justify-content: center;
+  color: var(--text-soft);
+  font-weight: 700;
+}
+
+.booking-alt a {
+  color: var(--accent-strong);
+}
+
+.section-tight {
+  padding: 1rem 0 0.6rem;
+}
+
+.announcement-strip {
+  justify-content: center;
+}
+
+.announcement-strip span {
+  border-color: rgba(22, 32, 43, 0.08);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.section-heading {
+  max-width: 52rem;
+  margin-bottom: 2rem;
+}
+
+.service-grid-premium {
+  align-items: stretch;
+}
+
+.service-block-numbered {
+  position: relative;
+  overflow: hidden;
+}
+
+.service-index,
+.step-no {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  background: rgba(22, 32, 43, 0.06);
+  color: var(--text-soft);
+  font-weight: 900;
+  margin-bottom: 1rem;
+}
+
+.service-meta {
+  margin-top: 1rem;
+  color: var(--accent-alt);
+  font-weight: 800;
+}
+
+.service-block-highlight {
+  background:
+    linear-gradient(180deg, rgba(15, 109, 119, 0.12), rgba(255, 255, 255, 0.9));
+}
+
+.review-grid,
+.steps-grid,
+.coverage-board,
+.coverage-metrics {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.review-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.review-card,
+.step-card,
+.coverage-panel,
+.metric-card,
+.problem-list-card {
+  background: rgba(255, 255, 255, 0.74);
+  border: 1px solid rgba(22, 32, 43, 0.08);
+  box-shadow: var(--shadow-md);
+  border-radius: var(--radius-lg);
+}
+
+.review-card,
+.step-card,
+.coverage-panel,
+.problem-list-card {
+  padding: 1.5rem;
+}
+
+.review-stars {
+  font-weight: 800;
+  margin-bottom: 0.9rem;
+}
+
+.review-card strong,
+.review-card span {
+  display: block;
+}
+
+.review-card span {
+  color: var(--text-soft);
+}
+
+.steps-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.pricing-shell {
+  display: grid;
+  gap: 1rem;
+}
+
+.price-tabs {
+  justify-content: center;
+}
+
+.price-tab.active {
+  background: rgba(22, 32, 43, 0.9);
+  color: var(--text-inverse);
+}
+
+.price-grid-featured {
+  margin-top: 0;
+}
+
+.pricing-note {
+  margin: 0;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.problem-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.problem-list li {
+  padding-left: 1.1rem;
+  position: relative;
+}
+
+.problem-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.5rem;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.coverage-board {
+  grid-template-columns: 1.15fr 0.85fr;
+}
+
+.coverage-panel {
+  background:
+    linear-gradient(180deg, rgba(17, 31, 43, 0.96), rgba(29, 43, 55, 0.94));
+  color: var(--text-inverse);
+}
+
+.coverage-cities-dark li {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.coverage-metrics {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.metric-card {
+  padding: 1.5rem;
+}
+
+.metric-card strong {
+  display: block;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 0.45rem;
+}
+
+.footer-dark {
+  background:
+    linear-gradient(180deg, rgba(10, 15, 22, 1), rgba(8, 12, 18, 1));
+}
+
+@media (max-width: 1024px) {
+  .hero-shell,
+  .review-grid,
+  .steps-grid,
+  .coverage-board {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 720px) {
+  .hero-dark {
+    padding-top: 2.5rem;
+  }
+
+  .hero-service-pills,
+  .trust-row,
+  .announcement-strip,
+  .price-tabs,
+  .booking-alt {
+    gap: 0.55rem;
+  }
+
+  .coverage-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+}
