@@ -1,37 +1,12 @@
 # Yavamo
 
-Deploy-ready static booking website for home services and tech services in Toronto and the Greater Toronto Area.
+Booking site app for home renovations, seasonal and tech services in Toronto and the Greater Toronto Area.
 
 ## What is included
 
-- Multi-page static site with a premium marketplace-inspired look
-- Homepage plus dedicated organic pages for home services, tech services, and Toronto local SEO
-- Two PPC landing pages with above-the-fold booking forms
+- Drop down options with a marketplace-inspired look
 - Lightweight booking flow with service, property type, date, arrival window, and cancellation-by-email acknowledgement
-- SEO basics: page metadata, canonical URLs, Open Graph, JSON-LD, `robots.txt`, `sitemap.xml`, and web manifest
-- Lead capture that works with:
-  - `api/lead.js` for Vercel
-  - `netlify/functions/lead.js` for Netlify
-  - `supabase/leads.sql` for the Supabase table
-- Automatic UTM capture in forms
-
-## Project structure
-
-```text
-/
-|-- index.html
-|-- services/
-|-- landing/
-|-- areas/
-|-- assets/
-|-- api/
-|-- netlify/functions/
-|-- supabase/leads.sql
-|-- robots.txt
-|-- sitemap.xml
-|-- vercel.json
-|-- netlify.toml
-```
+- SEO basics
 
 ## Deploy to Vercel
 
@@ -45,21 +20,8 @@ Deploy-ready static booking website for home services and tech services in Toron
 5. Update the production domain references if you change the placeholder domain `https://www.yavamo.ca`.
 6. If you already created the `leads` table from an older version of this project, run the updated SQL again so the booking columns are added with `alter table ... add column if not exists`.
 
-## Deploy to Netlify
-
-1. Push this folder to GitHub.
-2. Import the repository into Netlify.
-3. Netlify will publish the repo root and use `netlify/functions` automatically because `netlify.toml` is included.
-4. Add the same environment variables listed above.
-5. Run the SQL in `supabase/leads.sql`.
-6. If the table already exists from an earlier deployment, rerun the updated SQL so the new booking fields exist.
 
 ## Local editing notes
-
-- The site does not require a build step.
-- Open `index.html` in a browser for quick design review.
-- For full form testing, deploy to Vercel or Netlify with Supabase configured.
-- If no lead endpoint is available, the form falls back to opening the user's email app.
 
 ## Before launch
 
