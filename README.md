@@ -1,31 +1,50 @@
-# Yavamo!
+# Yavamo
 
-Site app for home renovations, seasonal and tech services currently in Canada.
-=======
+Next.js booking site for Yavamo home, commercial, and tech services in Toronto and the GTA.
 
-- Home Services
-  - Emergency
-  - Renovation
-  - Maintenance
-  - Seasonal
-- Commercial Services
-  - Office
-  - Retail
-  - Industrial
-  - Hospitality
-- Tech Services
-  - Smart Home diagnostics
-  - Security diagnostics
-  - Ai integrations
-  - Computer diagnostics
+## Forms and Supabase
 
-## Before launch #notes to self.
+The booking forms submit to:
 
-- Replace the canonical and social tags if final domain changes.
-- Add real testimonials, trust badges, and service-area pages as needed.
-- Connect analytics and ad pixels if want campaign attribution beyond UTMs.
-=======
-- Booking is intentionally simple: call, email, or book online. We're human after all.
-- Cancellations by email or SMS.
-- Update SEO AND PPC.
-Bye for now.
+- `POST /api/lead`
+
+That route inserts into Supabase using these server-side environment variables:
+
+- `SUPABASE_URL`
+- `SUPABASE_SERVICE_ROLE_KEY`
+- `LEADS_TABLE` default: `leads`
+
+Use [.env.example](C:\Users\saeor\Documents\Codex\Yavamo\.env.example) as the template for local or hosted configuration.
+
+## Supabase setup
+
+1. Create or open your Supabase project.
+2. Open `SQL Editor`.
+3. Run [supabase/leads.sql](C:\Users\saeor\Documents\Codex\Yavamo\supabase\leads.sql).
+4. In Supabase, copy:
+   - Project URL
+   - `service_role` key
+5. In Vercel project settings, add:
+   - `SUPABASE_URL`
+   - `SUPABASE_SERVICE_ROLE_KEY`
+   - `LEADS_TABLE=leads`
+
+## Verify form setup
+
+Open:
+
+- `https://yavamo.ca/api/lead`
+
+Expected response:
+
+- `configured: true`
+
+If it shows `configured: false`, the Vercel environment variables are still missing.
+
+Then submit a booking form and confirm the row appears in the Supabase `public.leads` table.
+
+## Notes
+
+- Booking is intentionally simple: call, email, or book online.
+- Cancellations are handled by email after confirmation.
+- PPC landing pages are non-indexed and should stay out of the sitemap.

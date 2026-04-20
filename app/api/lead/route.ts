@@ -29,6 +29,18 @@ function normalize(payload: Record<string, unknown>) {
   };
 }
 
+export async function GET() {
+  const supabaseUrl = process.env.SUPABASE_URL;
+  const serviceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const leadsTable = process.env.LEADS_TABLE || "leads";
+
+  return NextResponse.json({
+    ok: true,
+    configured: Boolean(supabaseUrl && serviceRoleKey),
+    leadsTable,
+  });
+}
+
 export async function POST(request: NextRequest) {
   const payload = normalize(await request.json());
 
