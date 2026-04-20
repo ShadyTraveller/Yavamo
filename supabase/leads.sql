@@ -5,7 +5,9 @@ create table if not exists public.leads (
   email text not null,
   phone text not null,
   postal_code text,
+  service_line text,
   service_type text not null,
+  industry text,
   property_type text,
   service_frequency text,
   preferred_date date,
@@ -26,6 +28,8 @@ create table if not exists public.leads (
 
 alter table public.leads add column if not exists property_type text;
 alter table public.leads add column if not exists service_frequency text;
+alter table public.leads add column if not exists service_line text;
+alter table public.leads add column if not exists industry text;
 alter table public.leads add column if not exists preferred_date date;
 alter table public.leads add column if not exists preferred_time text;
 alter table public.leads add column if not exists unit_size text;

@@ -1,4 +1,6 @@
-function normalize(payload) {
+import { NextRequest, NextResponse } from "next/server";
+
+function normalize(payload: Record<string, unknown>) {
   return {
     name: String(payload.name || "").trim(),
     email: String(payload.email || "").trim(),
@@ -23,26 +25,15 @@ function normalize(payload) {
     utm_term: String(payload.utm_term || "").trim(),
     utm_content: String(payload.utm_content || "").trim(),
     landing_page: String(payload.landing_page || "").trim(),
-    created_at: new Date().toISOString()
+    created_at: new Date().toISOString(),
   };
 }
 
-module.exports = async function handler(req, res) {
-  if (req.method === "OPTIONS") {
-    res.status(204).send("");
-    return;
-  }
-
-  if (req.method !== "POST") {
-    res.status(405).json({ ok: false, error: "Method not allowed" });
-    return;
-  }
-
-  const payload = normalize(req.body || {});
+export async function POST(request: NextRequest) {
+  const payload = normalize(await request.json());
 
   if (!payload.name || !payload.email || !payload.phone || !payload.message) {
-    res.status(400).json({ ok: false, error: "Missing required fields" });
-    return;
+    return NextResponse.json({ ok: false, error: "Missing required fields" }, { status: 400 });
   }
 
   const supabaseUrl = process.env.SUPABASE_URL;
@@ -50,29 +41,30 @@ module.exports = async function handler(req, res) {
   const leadsTable = process.env.LEADS_TABLE || "leads";
 
   if (!supabaseUrl || !serviceRoleKey) {
-    res.status(503).json({ ok: false, error: "Supabase environment variables are not configured" });
-    return;
+    return NextResponse.json(
+      { ok: false, error: "Supabase environment variables are not configured" },
+      { status: 503 }
+    );
   }
 
-  const response = await fetch(
-    supabaseUrl.replace(/\/+$/, "") + "/rest/v1/" + leadsTable,
-    {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        apikey: serviceRoleKey,
-        Authorization: "Bearer " + serviceRoleKey,
-        Prefer: "return=minimal"
-      },
-      body: JSON.stringify(payload)
-    }
-  );
+  const response = await fetch(`${supabaseUrl.replace(/\/+$/, "")}/rest/v1/${leadsTable}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      apikey: serviceRoleKey,
+      Authorization: `Bearer ${serviceRoleKey}`,
+      Prefer: "return=minimal",
+    },
+    body: JSON.stringify(payload),
+  });
 
   if (!response.ok) {
     const text = await response.text();
-    res.status(502).json({ ok: false, error: "Supabase insert failed", details: text });
-    return;
+    return NextResponse.json(
+      { ok: false, error: "Supabase insert failed", details: text },
+      { status: 502 }
+    );
   }
 
-  res.status(200).json({ ok: true });
-};
+  return NextResponse.json({ ok: true });
+}
