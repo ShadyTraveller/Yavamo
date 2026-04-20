@@ -1,12 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { BookingForm } from "@/components/booking-form";
-import {
-  commercialCategories,
-  commercialSubcategories,
-  industriesServed,
-  serviceAreas,
-} from "@/lib/services";
+import { commercialCategories, commercialSubcategories, industriesServed, serviceAreas } from "@/lib/services";
 
 export const metadata: Metadata = {
   title: "Commercial Services Toronto & GTA",
