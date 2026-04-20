@@ -84,8 +84,9 @@ export default function Home() {
                   Yavamo makes booking services simple.
                 </h1>
                 <p className="mt-4 text-base sm:text-lg text-[#666] max-w-2xl lg:max-w-none">
-                  Choose the service, type then book. Whether it&apos;s for your home,
-                  office, retail, industrial or hospital, Yavamo!
+                  Choose the service line, preview the work, and move straight into
+                  booking. Yavamo serves homes plus offices, retail spaces, industrial
+                  properties, and hospitality businesses.
                 </p>
                 <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                   <a
@@ -98,7 +99,7 @@ export default function Home() {
                     href={`mailto:${contact.email}`}
                     className="rounded-xl border border-[#E5E5E5] px-5 py-3 text-sm font-medium text-[#111] transition-colors hover:bg-[#FAFAFA]"
                   >
-                    Email
+                    Email {contact.email}
                   </a>
                   <Link
                     href="/book"
@@ -107,20 +108,43 @@ export default function Home() {
                     Book Online
                   </Link>
                 </div>
+                <div className="mt-8 grid gap-3 sm:grid-cols-3">
+                  {[
+                    { label: "Choose a service", value: "When you need it, now." },
+                    { label: "Confirm details", value: "Area, type, timing" },
+                    { label: "Book your way", value: "Phone, email, or online" ,
+                  ].map((item) => (
+                    <div
+                      key={item.label}
+                      className="rounded-2xl border border-[#E5E5E5] bg-white/90 px-4 py-4 text-left shadow-sm"
+                    >
+                      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
+                        {item.label}
+                      </p>
+                      <p className="mt-2 text-sm font-medium text-[#111]">{item.value}</p>
+                    </div>
+                  ))}
+                </div>
               </div>
 
               <div className="rounded-[28px] border border-[#E5E5E5] bg-white p-5 shadow-[0_24px_80px_-42px_rgba(17,17,17,0.35)]">
                 <div className="flex items-center justify-between gap-3">
                   <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
+                      
+                    </p>
                     <h2 className="mt-2 text-2xl font-semibold text-[#111]">
                       Work Order Request
                     </h2>
+                  </div>
+                  <div className="rounded-full bg-[#FEF7E8] px-3 py-1 text-xs font-medium text-[#A66C00]">
+                    {sectionData.title}
                   </div>
                 </div>
 
                 <div className="mt-5 grid gap-5">
                   <div>
-                    <p className="text-sm font-medium text-[#111]">1. Pick a service</p>
+                    <p className="text-sm font-medium text-[#111]">1. What service?</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {(["home", "commercial", "tech"] as NavSection[]).map((section) => {
                         const isActive = activeNav === section;
@@ -146,7 +170,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className="text-sm font-medium text-[#111]">2. Type</p>
+                    <p className="text-sm font-medium text-[#111]">2. Type?</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {sectionData.categories.map((category) => {
                         const isActive = plannerCategory === category.id;
@@ -169,7 +193,7 @@ export default function Home() {
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="grid gap-2 text-sm font-medium text-[#111]">
-                      3. Where should we go?
+                      3. Where is the job?
                       <select
                         value={selectedArea}
                         onChange={(event) => setSelectedArea(event.target.value)}
@@ -183,7 +207,7 @@ export default function Home() {
                       </select>
                     </label>
                     <label className="grid gap-2 text-sm font-medium text-[#111]">
-                      4. What property?
+                      4. What type of property?
                       <select
                         value={selectedPropertyType}
                         onChange={(event) => setSelectedPropertyType(event.target.value)}
@@ -203,10 +227,19 @@ export default function Home() {
                   <div className="rounded-2xl bg-[#FAFAFA] p-4">
                     <div className="flex items-start justify-between gap-4">
                       <div>
+                        <p className="text-sm font-medium text-[#111]">
+                          Suggested {plannerCategoryLabel.toLowerCase()} services
+                        </p>
                         <p className="mt-1 text-sm text-[#666]">
                           {selectedArea} · {selectedPropertyType}
                         </p>
                       </div>
+                      <button
+                        onClick={() => handleCategoryClick(plannerCategory)}
+                        className="rounded-full border border-[#E5E5E5] bg-white px-3 py-1.5 text-xs font-medium text-[#111] hover:bg-[#F5F5F5]"
+                      >
+                        Open list
+                      </button>
                     </div>
                     <div className="mt-4 grid gap-2">
                       {plannerServices.slice(0, 4).map((service) => (
@@ -228,6 +261,12 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-wrap gap-3">
+                    <button
+                      onClick={() => handleCategoryClick(plannerCategory)}
+                      className="rounded-xl bg-[#111] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#222]"
+                    >
+                      Explore {plannerCategoryLabel}
+                    </button>
                     <Link
                       href="/book"
                       className="rounded-xl border border-[#E5E5E5] px-5 py-3 text-sm font-medium text-[#111] transition-colors hover:bg-[#FAFAFA]"
@@ -247,7 +286,7 @@ export default function Home() {
                   </h2>
                   <p className="mt-2 text-[#666] max-w-2xl">
                     {sectionData.subtitle}. Choose a category below to browse services,
-                    open prices, and jump into booking without leaving the page.
+                    check pricing. and jump into booking without leaving the page.
                   </p>
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -269,11 +308,22 @@ export default function Home() {
               <CategoryCards categories={sectionData.categories} onCategoryClick={handleCategoryClick} />
             </section>
 
+            <section className="mb-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
+              <article className="rounded-3xl border border-[#E5E5E5] bg-white p-6 shadow-sm">
+                <div className="flex items-center justify-between gap-4">
+                  <div>
+                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
+                      
+
+    
+
             <section className="rounded-3xl bg-[#111] px-6 py-8 text-white">
               <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-semibold mb-3">Yavamo where?</h2>
-                  <p className="text-white/70 max-w-2xl mb-5">We service Toronto and the GTA.</p>
+                  <h2 className="text-2xl sm:text-3xl font-semibold mb-3">Yavamo to your area!</h2>
+                  <p className="text-white/70 max-w-2xl mb-5">
+                   We service Toronto and the GTA.
+                  </p>
                   <div className="flex flex-wrap gap-2">
                     {serviceAreas.map((area) => (
                       <span
@@ -288,8 +338,8 @@ export default function Home() {
                 <div className="rounded-2xl bg-white/5 p-5">
                   <h3 className="text-lg font-semibold mb-3">Booking and cancellations</h3>
                   <p className="text-sm text-white/75 mb-4">
-                    Customers can call, email, or book online. Cancellations are handled by email,
-                    keeping the process simple without accounts or dashboards.
+                    Feel free to call, email, or book online. Cancellations are by email
+                    keeping the process simple without accounts, dashboards or privacy concerns.
                   </p>
                   <div className="flex flex-wrap gap-3">
                     <a
@@ -303,6 +353,12 @@ export default function Home() {
                       className="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/10"
                     >
                       Online booking
+                    </Link>
+                    <Link
+                      href="/terms"
+                      className="rounded-xl border border-white/20 px-4 py-2.5 text-sm font-medium text-white hover:bg-white/10"
+                    >
+                      Up to you!
                     </Link>
                   </div>
                 </div>
@@ -334,7 +390,7 @@ export default function Home() {
               {sectionData.categories.find((c) => c.id === activeCategory)?.label || activeCategory}
             </h2>
             <p className="text-[#666] mb-6">
-              Browse services and open pricing to call, email, or continue into online booking.
+              Browse services then call, email, or continue into online booking.
             </p>
             <SubcategoryList
               subcategories={sectionData.subcategories[activeCategory] || []}
@@ -348,9 +404,6 @@ export default function Home() {
         <PricingModal
           service={selectedService}
           onClose={() => setSelectedService(null)}
-          serviceLine={sectionData.title}
-          selectedArea={selectedArea}
-          selectedPropertyType={selectedPropertyType}
         />
       )}
     </div>
