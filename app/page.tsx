@@ -84,9 +84,8 @@ export default function Home() {
                   Yavamo makes booking services simple.
                 </h1>
                 <p className="mt-4 text-base sm:text-lg text-[#666] max-w-2xl lg:max-w-none">
-                  Choose the service line, preview the work, and move straight into
-                  booking. Yavamo serves homes plus offices, retail spaces, industrial
-                  properties, and hospitality businesses.
+                  Choose the service, type then book. Whether it&apos;s for your home,
+                  office, retail, industrial or hospital, Yavamo!
                 </p>
                 <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                   <a
@@ -99,7 +98,7 @@ export default function Home() {
                     href={`mailto:${contact.email}`}
                     className="rounded-xl border border-[#E5E5E5] px-5 py-3 text-sm font-medium text-[#111] transition-colors hover:bg-[#FAFAFA]"
                   >
-                    Email {contact.email}
+                    Email
                   </a>
                   <Link
                     href="/book"
@@ -108,43 +107,20 @@ export default function Home() {
                     Book Online
                   </Link>
                 </div>
-                <div className="mt-8 grid gap-3 sm:grid-cols-3">
-                  {[
-                    { label: "Choose a service", value: "Live guided planner" },
-                    { label: "Confirm the details", value: "Area, type, timing" },
-                    { label: "Book your way", value: "Phone, email, or online" },
-                  ].map((item) => (
-                    <div
-                      key={item.label}
-                      className="rounded-2xl border border-[#E5E5E5] bg-white/90 px-4 py-4 text-left shadow-sm"
-                    >
-                      <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
-                        {item.label}
-                      </p>
-                      <p className="mt-2 text-sm font-medium text-[#111]">{item.value}</p>
-                    </div>
-                  ))}
-                </div>
               </div>
 
               <div className="rounded-[28px] border border-[#E5E5E5] bg-white p-5 shadow-[0_24px_80px_-42px_rgba(17,17,17,0.35)]">
                 <div className="flex items-center justify-between gap-3">
                   <div>
-                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
-                      Interactive planner
-                    </p>
                     <h2 className="mt-2 text-2xl font-semibold text-[#111]">
-                      Build your booking request
+                      Work Order Request
                     </h2>
-                  </div>
-                  <div className="rounded-full bg-[#FEF7E8] px-3 py-1 text-xs font-medium text-[#A66C00]">
-                    {sectionData.title}
                   </div>
                 </div>
 
                 <div className="mt-5 grid gap-5">
                   <div>
-                    <p className="text-sm font-medium text-[#111]">1. Pick a service line</p>
+                    <p className="text-sm font-medium text-[#111]">1. Pick a service</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {(["home", "commercial", "tech"] as NavSection[]).map((section) => {
                         const isActive = activeNav === section;
@@ -170,7 +146,7 @@ export default function Home() {
                   </div>
 
                   <div>
-                    <p className="text-sm font-medium text-[#111]">2. Preview the type of work</p>
+                    <p className="text-sm font-medium text-[#111]">2. Type</p>
                     <div className="mt-3 flex flex-wrap gap-2">
                       {sectionData.categories.map((category) => {
                         const isActive = plannerCategory === category.id;
@@ -193,7 +169,7 @@ export default function Home() {
 
                   <div className="grid gap-4 sm:grid-cols-2">
                     <label className="grid gap-2 text-sm font-medium text-[#111]">
-                      3. Where is the job?
+                      3. Where should we go?
                       <select
                         value={selectedArea}
                         onChange={(event) => setSelectedArea(event.target.value)}
@@ -207,7 +183,7 @@ export default function Home() {
                       </select>
                     </label>
                     <label className="grid gap-2 text-sm font-medium text-[#111]">
-                      4. What type of property?
+                      4. What property?
                       <select
                         value={selectedPropertyType}
                         onChange={(event) => setSelectedPropertyType(event.target.value)}
@@ -227,19 +203,10 @@ export default function Home() {
                   <div className="rounded-2xl bg-[#FAFAFA] p-4">
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <p className="text-sm font-medium text-[#111]">
-                          Suggested {plannerCategoryLabel.toLowerCase()} services
-                        </p>
                         <p className="mt-1 text-sm text-[#666]">
                           {selectedArea} · {selectedPropertyType}
                         </p>
                       </div>
-                      <button
-                        onClick={() => handleCategoryClick(plannerCategory)}
-                        className="rounded-full border border-[#E5E5E5] bg-white px-3 py-1.5 text-xs font-medium text-[#111] hover:bg-[#F5F5F5]"
-                      >
-                        Open list
-                      </button>
                     </div>
                     <div className="mt-4 grid gap-2">
                       {plannerServices.slice(0, 4).map((service) => (
@@ -261,12 +228,6 @@ export default function Home() {
                   </div>
 
                   <div className="flex flex-wrap gap-3">
-                    <button
-                      onClick={() => handleCategoryClick(plannerCategory)}
-                      className="rounded-xl bg-[#111] px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-[#222]"
-                    >
-                      Explore {plannerCategoryLabel}
-                    </button>
                     <Link
                       href="/book"
                       className="rounded-xl border border-[#E5E5E5] px-5 py-3 text-sm font-medium text-[#111] transition-colors hover:bg-[#FAFAFA]"
@@ -308,113 +269,11 @@ export default function Home() {
               <CategoryCards categories={sectionData.categories} onCategoryClick={handleCategoryClick} />
             </section>
 
-            <section className="mb-12 grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-              <article className="rounded-3xl border border-[#E5E5E5] bg-white p-6 shadow-sm">
-                <div className="flex items-center justify-between gap-4">
-                  <div>
-                    <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
-                      Live preview
-                    </p>
-                    <h3 className="mt-2 text-2xl font-semibold text-[#111]">
-                      {plannerCategoryLabel} service matches
-                    </h3>
-                  </div>
-                  <button
-                    onClick={() => handleCategoryClick(plannerCategory)}
-                    className="rounded-full border border-[#E5E5E5] px-4 py-2 text-sm font-medium text-[#111] hover:bg-[#FAFAFA]"
-                  >
-                    View all
-                  </button>
-                </div>
-                <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                  {plannerServices.slice(0, 6).map((service, index) => (
-                    <button
-                      key={service.name}
-                      onClick={() => setSelectedService(service)}
-                      className="rounded-2xl border border-[#E5E5E5] p-4 text-left transition-all hover:-translate-y-0.5 hover:border-[#F5A623] hover:shadow-md"
-                    >
-                      <div className="flex items-center justify-between gap-3">
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FEF7E8] text-xs font-semibold text-[#A66C00]">
-                          {String(index + 1).padStart(2, "0")}
-                        </span>
-                        <span className="text-sm font-semibold text-[#111]">{service.price}</span>
-                      </div>
-                      <h4 className="mt-3 text-base font-semibold text-[#111]">{service.name}</h4>
-                      <p className="mt-1 text-sm text-[#666]">
-                        Open pricing, then call, email, or move into online booking.
-                      </p>
-                    </button>
-                  ))}
-                </div>
-              </article>
-
-              <article className="rounded-3xl bg-[#FEF7E8] p-6">
-                <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
-                  Why it feels faster
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold text-[#111]">
-                  Browse like a marketplace, book like a service desk
-                </h3>
-                <div className="mt-5 grid gap-3">
-                  {[
-                    "Switch between home, commercial, and tech without reloading.",
-                    "Preview actual services before opening the full category.",
-                    "Open a pricing card instantly and move to phone, email, or online booking.",
-                    "Keep cancellations simple through email instead of requiring accounts.",
-                  ].map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-2xl bg-white px-4 py-4 text-sm text-[#444] shadow-sm"
-                    >
-                      {item}
-                    </div>
-                  ))}
-                </div>
-              </article>
-            </section>
-
-            <section className="grid gap-6 lg:grid-cols-3 mb-12">
-              <article className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-[#111] mb-3">SEO service pages</h3>
-                <ul className="space-y-3 text-sm text-[#444]">
-                  <li><Link className="hover:text-[#111]" href="/services/home-services">Home services</Link></li>
-                  <li><Link className="hover:text-[#111]" href="/services/commercial-services">Commercial services</Link></li>
-                  <li><Link className="hover:text-[#111]" href="/services/tech-services">Tech services</Link></li>
-                  <li><Link className="hover:text-[#111]" href="/areas/toronto">Toronto area page</Link></li>
-                </ul>
-              </article>
-              <article className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-[#111] mb-3">PPC landing pages</h3>
-                <ul className="space-y-3 text-sm text-[#444]">
-                  <li><Link className="hover:text-[#111]" href="/landing/home-services-gta">Home services GTA</Link></li>
-                  <li><Link className="hover:text-[#111]" href="/landing/commercial-services-gta">Commercial services GTA</Link></li>
-                  <li><Link className="hover:text-[#111]" href="/landing/tech-services-gta">Tech services GTA</Link></li>
-                </ul>
-              </article>
-              <article className="rounded-2xl border border-[#E5E5E5] bg-white p-6 shadow-sm">
-                <h3 className="text-lg font-semibold text-[#111] mb-3">Industries served</h3>
-                <div className="flex flex-wrap gap-2">
-                  {industriesServed.map((industry) => (
-                    <span
-                      key={industry}
-                      className="rounded-full bg-[#F5F5F5] px-3 py-1.5 text-sm text-[#444]"
-                    >
-                      {industry}
-                    </span>
-                  ))}
-                </div>
-              </article>
-            </section>
-
             <section className="rounded-3xl bg-[#111] px-6 py-8 text-white">
               <div className="grid gap-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
                 <div>
-                  <h2 className="text-2xl sm:text-3xl font-semibold mb-3">Where Yavamo works</h2>
-                  <p className="text-white/70 max-w-2xl mb-5">
-                    Search and paid campaigns should reflect the actual company footprint,
-                    so the site now centers on Toronto and nearby GTA cities where these services
-                    can realistically be booked.
-                  </p>
+                  <h2 className="text-2xl sm:text-3xl font-semibold mb-3">Yavamo where?</h2>
+                  <p className="text-white/70 max-w-2xl mb-5">We service Toronto and the GTA.</p>
                   <div className="flex flex-wrap gap-2">
                     {serviceAreas.map((area) => (
                       <span
