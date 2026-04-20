@@ -26,22 +26,42 @@ create table if not exists public.leads (
   landing_page text
 );
 
-alter table public.leads add column if not exists property_type text;
-alter table public.leads add column if not exists service_frequency text;
+alter table public.leads add column if not exists postal_code text;
 alter table public.leads add column if not exists service_line text;
 alter table public.leads add column if not exists industry text;
+alter table public.leads add column if not exists property_type text;
+alter table public.leads add column if not exists service_frequency text;
 alter table public.leads add column if not exists preferred_date date;
 alter table public.leads add column if not exists preferred_time text;
 alter table public.leads add column if not exists unit_size text;
 alter table public.leads add column if not exists service_address text;
 alter table public.leads add column if not exists booking_channel text;
 alter table public.leads add column if not exists cancellation_policy_ack text;
+alter table public.leads add column if not exists timeline text;
+alter table public.leads add column if not exists utm_source text;
+alter table public.leads add column if not exists utm_medium text;
+alter table public.leads add column if not exists utm_campaign text;
+alter table public.leads add column if not exists utm_term text;
+alter table public.leads add column if not exists utm_content text;
+alter table public.leads add column if not exists landing_page text;
 
 alter table public.leads enable row level security;
 
-create policy "service-role-can-insert-leads"
-  on public.leads
-  as permissive
-  for insert
-  to service_role
-  with check (true);
+do $$
+begin
+  if not exists (
+    select 1
+    from pg_policies
+    where schemaname = 'public'
+      and tablename = 'leads'
+      and policyname = 'service-role-can-insert-leads'
+  ) then
+    create policy "service-role-can-insert-leads"
+      on public.leads
+      as permissive
+      for insert
+      to service_role
+      with check (true);
+  end if;
+end
+$$;

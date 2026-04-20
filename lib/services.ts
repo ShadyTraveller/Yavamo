@@ -29,7 +29,7 @@ export const contact = {
   phoneDisplay: "(416) 659-7503",
   phoneHref: "+14166597503",
   email: "book@yavamo.ca",
-  siteUrl: "https://www.yavamo.ca",
+  siteUrl: "https://yavamo.ca",
   areaLabel: "Toronto and the Greater Toronto Area",
 };
 

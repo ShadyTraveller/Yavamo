@@ -8,9 +8,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/services/home-services",
     "/services/commercial-services",
     "/services/tech-services",
-    "/landing/home-services-gta",
-    "/landing/commercial-services-gta",
-    "/landing/tech-services-gta",
     "/areas/toronto",
   ];
 

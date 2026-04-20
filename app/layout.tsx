@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { contact } from "@/lib/services";
+import { contact, industriesServed, serviceAreas } from "@/lib/services";
 import "./globals.css";
 
 const inter = Inter({
@@ -53,6 +53,35 @@ export const metadata: Metadata = {
   },
 };
 
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      name: contact.businessName,
+      url: contact.siteUrl,
+      potentialAction: {
+        "@type": "ReserveAction",
+        target: `${contact.siteUrl}/book`,
+      },
+    },
+    {
+      "@type": "ProfessionalService",
+      name: contact.businessName,
+      url: contact.siteUrl,
+      email: contact.email,
+      telephone: contact.phoneHref,
+      areaServed: serviceAreas,
+      serviceType: [
+        "Home services",
+        "Commercial services",
+        "Tech services",
+        ...industriesServed,
+      ],
+    },
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -61,6 +90,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} bg-white`}>
       <body className="font-sans antialiased bg-white text-[#111]">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         {children}
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
