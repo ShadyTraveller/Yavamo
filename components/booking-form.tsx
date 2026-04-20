@@ -34,6 +34,9 @@ export function BookingForm({
   const [status, setStatus] = useState("");
   const [statusKind, setStatusKind] = useState<"idle" | "success" | "error">("idle");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [serviceType, setServiceType] = useState(defaultService);
+  const [serviceLineValue, setServiceLineValue] = useState(serviceLine);
+  const [industryValue, setIndustryValue] = useState(industry);
 
   useEffect(() => {
     const today = new Date();
@@ -50,7 +53,14 @@ export function BookingForm({
       utm_term: params.get("utm_term") || "",
       utm_content: params.get("utm_content") || "",
     });
-  }, []);
+
+    const requestedService = params.get("service");
+    const requestedLine = params.get("line");
+    const requestedIndustry = params.get("industry");
+    setServiceType(requestedService || defaultService);
+    setServiceLineValue(requestedLine || serviceLine);
+    setIndustryValue(requestedIndustry || industry);
+  }, [defaultService, industry, serviceLine]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -77,15 +87,15 @@ export function BookingForm({
       setStatus("Thanks. Your booking request is in. We will confirm by email or phone shortly.");
       setStatusKind("success");
     } catch (_error) {
-      const subject = encodeURIComponent(`New Yavamo booking: ${String(payload.service_type || defaultService)}`);
+      const subject = encodeURIComponent(`New Yavamo booking: ${String(payload.service_type || serviceType)}`);
       const body = encodeURIComponent(
         [
           `Name: ${String(payload.name || "")}`,
           `Email: ${String(payload.email || "")}`,
           `Phone: ${String(payload.phone || "")}`,
-          `Service line: ${String(payload.service_line || serviceLine)}`,
-          `Service: ${String(payload.service_type || defaultService)}`,
-          `Industry: ${String(payload.industry || industry)}`,
+          `Service line: ${String(payload.service_line || serviceLineValue)}`,
+          `Service: ${String(payload.service_type || serviceType)}`,
+          `Industry: ${String(payload.industry || industryValue)}`,
           `Property type: ${String(payload.property_type || "")}`,
           `Preferred date: ${String(payload.preferred_date || "")}`,
           `Preferred time: ${String(payload.preferred_time || "")}`,
@@ -108,11 +118,24 @@ export function BookingForm({
       <div className="mb-5">
         <h2 className="text-2xl font-semibold text-[#111]">{title}</h2>
         <p className="mt-2 text-sm text-[#666]">{description}</p>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <span className="rounded-full bg-[#FEF7E8] px-3 py-1 text-xs font-medium text-[#A66C00]">
+            {serviceLineValue}
+          </span>
+          <span className="rounded-full bg-[#F5F5F5] px-3 py-1 text-xs font-medium text-[#444]">
+            {serviceType}
+          </span>
+          {industryValue ? (
+            <span className="rounded-full bg-[#F5F5F5] px-3 py-1 text-xs font-medium text-[#444]">
+              {industryValue}
+            </span>
+          ) : null}
+        </div>
       </div>
       <form className="space-y-4" onSubmit={handleSubmit}>
-        <input type="hidden" name="service_line" value={serviceLine} />
-        <input type="hidden" name="service_type" value={defaultService} />
-        <input type="hidden" name="industry" value={industry} />
+        <input type="hidden" name="service_line" value={serviceLineValue} />
+        <input type="hidden" name="service_type" value={serviceType} />
+        <input type="hidden" name="industry" value={industryValue} />
         <input type="hidden" name="booking_channel" value="website" />
         <input type="hidden" name="landing_page" value={pathname} />
         <input type="hidden" name="utm_source" value={utms.utm_source} />

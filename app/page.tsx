@@ -48,11 +48,18 @@ export default function Home() {
 
   const handleNavClick = (section: NavSection) => {
     setActiveNav(section);
-    setActiveCategory(null);
+    const nextSectionData = getSectionData(section);
+    const nextCategory = nextSectionData.categories[0]?.id ?? null;
+
+    setPlannerCategory(nextCategory ?? "");
+    setActiveCategory(nextCategory);
     setSelectedService(null);
   };
 
   const handleCategoryClick = (category: string | null) => {
+    if (category) {
+      setPlannerCategory(category);
+    }
     setActiveCategory(category);
     setSelectedService(null);
   };
@@ -73,10 +80,7 @@ export default function Home() {
           <div className="animate-fadeIn relative z-10">
             <section className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-start mb-12">
               <div className="text-center lg:text-left">
-                <span className="inline-flex items-center rounded-full bg-[#FEF7E8] px-4 py-2 text-sm font-medium text-[#A66C00]">
-                  Toronto and the Greater Toronto Area
-                </span>
-                <h1 className="mt-5 text-4xl sm:text-5xl font-semibold tracking-tight text-[#111]">
+                <h1 className="text-4xl sm:text-5xl font-semibold tracking-tight text-[#111]">
                   Yavamo makes booking services simple.
                 </h1>
                 <p className="mt-4 text-base sm:text-lg text-[#666] max-w-2xl lg:max-w-none">
@@ -173,7 +177,7 @@ export default function Home() {
                         return (
                           <button
                             key={category.id}
-                            onClick={() => setPlannerCategory(category.id)}
+                            onClick={() => handleCategoryClick(category.id)}
                             className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                               isActive
                                 ? "bg-[#F5A623] text-white"
@@ -289,7 +293,7 @@ export default function Home() {
                   {sectionData.categories.map((category) => (
                     <button
                       key={category.id}
-                      onClick={() => setPlannerCategory(category.id)}
+                      onClick={() => handleCategoryClick(category.id)}
                       className={`rounded-full px-4 py-2 text-sm font-medium transition-colors ${
                         plannerCategory === category.id
                           ? "bg-[#111] text-white"
@@ -485,6 +489,9 @@ export default function Home() {
         <PricingModal
           service={selectedService}
           onClose={() => setSelectedService(null)}
+          serviceLine={sectionData.title}
+          selectedArea={selectedArea}
+          selectedPropertyType={selectedPropertyType}
         />
       )}
     </div>

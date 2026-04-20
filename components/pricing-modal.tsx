@@ -1,15 +1,24 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect } from "react";
 import { contact, Subcategory } from "@/lib/services";
 
 interface PricingModalProps {
   service: Subcategory;
   onClose: () => void;
+  serviceLine?: string;
+  selectedArea?: string;
+  selectedPropertyType?: string;
 }
 
-export function PricingModal({ service, onClose }: PricingModalProps) {
-  // Close on escape key
+export function PricingModal({
+  service,
+  onClose,
+  serviceLine = "General booking",
+  selectedArea = "Toronto",
+  selectedPropertyType = "Property",
+}: PricingModalProps) {
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -36,130 +45,167 @@ export function PricingModal({ service, onClose }: PricingModalProps) {
         onClick={onClose}
       />
 
-      {/* Modal */}
-      <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md mx-4 overflow-hidden animate-scaleIn">
-        {/* Header */}
-        <div className="bg-[#FEF7E8] px-6 py-8 text-center">
-          <div className="w-16 h-16 bg-white rounded-xl shadow-sm flex items-center justify-center mx-auto mb-4">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="32"
-              height="32"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#F5A623"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+      <aside className="relative ml-auto flex h-full w-full max-w-xl flex-col overflow-hidden bg-white shadow-2xl">
+        <div className="border-b border-[#E5E5E5] bg-[#FEF7E8] px-6 py-6">
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
+                Booking drawer
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold text-[#111]">{service.name}</h2>
+              <p className="mt-2 text-sm text-[#666]">
+                Review the service, then call, email, or move straight into the booking form.
+              </p>
+            </div>
+            <button
+              onClick={onClose}
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-white/80 text-[#666] transition-colors hover:bg-white hover:text-[#111]"
             >
-              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-              <polyline points="22 4 12 14.01 9 11.01" />
-            </svg>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </button>
           </div>
-          <h2 className="text-xl font-semibold text-[#111] mb-1">
-            {service.name}
-          </h2>
-          <p className="text-[#666] text-sm">Professional service at your doorstep</p>
+          <div className="mt-5 flex flex-wrap gap-2">
+            <span className="rounded-full bg-white px-3 py-1 text-xs font-medium text-[#111]">
+              {serviceLine}
+            </span>
+            <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-[#444]">
+              {selectedArea}
+            </span>
+            <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-medium text-[#444]">
+              {selectedPropertyType}
+            </span>
+          </div>
         </div>
 
-        {/* Content */}
-        <div className="px-6 py-6">
-          <div className="bg-[#FAFAFA] rounded-xl p-4 mb-6">
-            <div className="flex items-center justify-between">
-              <span className="text-[#666] text-sm">Starting price</span>
-              <span className="text-2xl font-bold text-[#111]">{service.price}</span>
+        <div className="flex-1 overflow-y-auto px-6 py-6">
+          <div className="rounded-2xl border border-[#E5E5E5] bg-[#FAFAFA] p-5">
+            <div className="flex items-center justify-between gap-4">
+              <div>
+                <p className="text-sm font-medium text-[#666]">Starting price</p>
+                <p className="mt-1 text-3xl font-semibold text-[#111]">{service.price}</p>
+              </div>
+              <div className="rounded-2xl bg-white px-4 py-3 text-right shadow-sm">
+                <p className="text-xs font-medium uppercase tracking-[0.2em] text-[#A66C00]">
+                  Best for
+                </p>
+                <p className="mt-2 text-sm font-medium text-[#111]">{selectedArea}</p>
+              </div>
             </div>
           </div>
 
-          <ul className="space-y-3 mb-6">
-            <li className="flex items-center gap-3 text-sm text-[#444]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#22C55E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              Licensed & insured professionals
-            </li>
-            <li className="flex items-center gap-3 text-sm text-[#444]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#22C55E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              Satisfaction guaranteed
-            </li>
-            <li className="flex items-center gap-3 text-sm text-[#444]">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="18"
-                height="18"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="#22C55E"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <polyline points="20 6 9 17 4 12" />
-              </svg>
-              Flexible scheduling
-            </li>
-          </ul>
+          <div className="mt-6 grid gap-4">
+            <div className="rounded-2xl border border-[#E5E5E5] p-5">
+              <p className="text-sm font-semibold text-[#111]">What happens next</p>
+              <ul className="mt-4 space-y-3">
+                <li className="flex items-center gap-3 text-sm text-[#444]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#22C55E"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  We confirm scope and timing by phone or email.
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[#444]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#22C55E"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  Cancellations and changes stay simple through email.
+                </li>
+                <li className="flex items-center gap-3 text-sm text-[#444]">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="#22C55E"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                  No account needed to request this service.
+                </li>
+              </ul>
+            </div>
 
-          {/* Actions */}
-          <div className="flex gap-3">
-            <button
-              onClick={onClose}
-              className="flex-1 px-4 py-3 border border-[#E5E5E5] rounded-xl text-sm font-medium text-[#666] hover:bg-[#F5F5F5] transition-colors"
-            >
-              Maybe Later
-            </button>
-            <a
-              href={`mailto:${contact.email}?subject=${encodeURIComponent(`Booking request: ${service.name}`)}`}
-              className="flex-1 px-4 py-3 bg-[#F5A623] text-white rounded-xl text-sm font-medium hover:bg-[#E09515] transition-colors text-center"
-            >
-              Book Now
-            </a>
+            <div className="rounded-2xl border border-[#E5E5E5] p-5">
+              <p className="text-sm font-semibold text-[#111]">Quick actions</p>
+              <div className="mt-4 grid gap-3">
+                <a
+                  href={`tel:${contact.phoneHref}`}
+                  className="rounded-xl bg-[#111] px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-[#222]"
+                >
+                  Call {contact.phoneDisplay}
+                </a>
+                <a
+                  href={`mailto:${contact.email}?subject=${encodeURIComponent(`Booking request: ${service.name}`)}`}
+                  className="rounded-xl border border-[#E5E5E5] px-4 py-3 text-center text-sm font-medium text-[#111] transition-colors hover:bg-[#FAFAFA]"
+                >
+                  Email this service
+                </a>
+                <Link
+                  href={`/book?service=${encodeURIComponent(service.name)}&line=${encodeURIComponent(
+                    serviceLine
+                  )}`}
+                  className="rounded-xl bg-[#F5A623] px-4 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-[#E09515]"
+                >
+                  Book online
+                </Link>
+              </div>
+            </div>
+
+            <div className="rounded-2xl bg-[#FAFAFA] p-5 text-sm text-[#444]">
+              <p className="font-semibold text-[#111]">Recommended details to include</p>
+              <p className="mt-2">
+                Mention access notes, timing preferences, and any photos or measurements that will
+                help us confirm this {service.name.toLowerCase()} request faster.
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* Close button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 bg-white/80 backdrop-blur-sm rounded-full flex items-center justify-center text-[#666] hover:text-[#111] hover:bg-white transition-colors"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="18"
-            height="18"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
+        <div className="border-t border-[#E5E5E5] bg-white px-6 py-4">
+          <button
+            onClick={onClose}
+            className="w-full rounded-xl border border-[#E5E5E5] px-4 py-3 text-sm font-medium text-[#666] transition-colors hover:bg-[#F5F5F5]"
           >
-            <line x1="18" y1="6" x2="6" y2="18" />
-            <line x1="6" y1="6" x2="18" y2="18" />
-          </svg>
-        </button>
-      </div>
+            Continue browsing
+          </button>
+        </div>
+      </aside>
     </div>
   );
 }
